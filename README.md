@@ -1,29 +1,16 @@
-# Next.js Static Export
+# Steps to reproduce
 
-Next.js enables starting as a static site or Single-Page Application (SPA), then later optionally upgrading to use features that require a server.
-
-When running `next build`, Next.js generates an HTML file per route. By breaking a strict SPA into individual HTML files, Next.js can avoid loading unnecessary JavaScript code on the client-side, reducing the bundle size and enabling faster page loads.
-
-Learn more: https://beta.nextjs.org/docs/configuring/static-export
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-static-export)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-static-export)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-static-export with-static-export-app
+```
+pnpm build
+cd out
+python3 -m http.server 3000
 ```
 
-```bash
-yarn create next-app --example with-static-export with-static-export-app
-```
+Visit http://localhost:3000 and navigate the pages. It works with Pages Router but not App Router.
 
-```bash
-pnpm create next-app --example with-static-export with-static-export-app
+> [!NOTE]
+> At this time, the build fails with an error message because it is not supported:
+
+```
+Error: Page "/blog-app/[slug]" is missing "generateStaticParams()" so it cannot be used with "output: export" config.
 ```

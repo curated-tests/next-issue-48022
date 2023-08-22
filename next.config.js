@@ -5,9 +5,7 @@
  **/
 const nextConfig = {
   output: 'export',
-  experimental: {
-    appDir: true,
-  },
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
